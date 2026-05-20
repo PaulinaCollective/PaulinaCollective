@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paulina Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fdf8f6;
+    --deep: #2d1f1a;
+    --mid: #5c3d35;
+    --soft: #9a6e65;
+    --rose: #c9847a;
+    --rose-pale: #f0d4d0;
+    --gold: #c9a96e;
+    --mauve: #b89ab0;
+    --mauve-pale: #ecdde8;
+    --white: #fefcfb;
+    --border: #ecdde8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--deep);
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 48px;
+    gap: 60px;
+  }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding: 40px 28px; text-align: center; }
+    .hero-image { order: -1; }
+    .hero-divider { margin: 0 auto 40px; }
+    .hero-tagline { margin: 0 auto 40px; }
+    .hero-nav { justify-content: center; }
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 7vw, 100px);
+    font-weight: 300;
+    line-height: 0.92;
+    color: var(--deep);
+    margin-bottom: 28px;
+    letter-spacing: -1px;
+  }
+
+  .hero-title em { font-style: italic; color: var(--rose); }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(17px, 2vw, 22px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--soft);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 420px;
+  }
+
+  .hero-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 40px;
+  }
+
+  .hero-nav { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .hero-btn {
+    padding: 12px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .hero-btn.primary { background: var(--deep); color: var(--white); }
+  .hero-btn.primary:hover { background: var(--mid); }
+  .hero-btn.secondary { background: transparent; color: var(--soft); border: 1px solid var(--border); }
+  .hero-btn.secondary:hover { border-color: var(--rose); color: var(--rose); }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px rgba(45,31,26,0.12);
+  }
+
+  /* CREANDO */
+  .seccion {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px 100px;
+  }
+
+  @media (max-width: 600px) { .seccion { padding: 0 24px 80px; } }
+
+  .seccion-header {
+    padding: 80px 0 40px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  .seccion-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .seccion-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--deep);
+    line-height: 1.1;
+  }
+
+  .seccion-titulo em { font-style: italic; color: var(--rose); }
+
+  .creando {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .creando-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--mauve);
+    padding: 5px 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .creando-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--mauve);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 48px 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--soft);
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .footer-name:hover { color: var(--deep); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <span class="hero-eyebrow">Paulina Collective</span>
+    <h1 class="hero-title">Conciencia,<br>creación<br>y <em>resonancia</em><br>humana.</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">Explorando conciencia, creación y resonancia humana — a través de charlas, música y recursos para el camino interior.</p>
+    <div class="hero-nav">
+      <a href="https://paulinacollective.github.io/charlas" class="hero-btn primary">Charlas</a>
+      <a href="https://t.me/Pautejedora" target="_blank" class="hero-btn secondary">Contacto</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="paulina_cover.jpg" alt="Paulina Collective">
+  </div>
+</div>
+
+<!-- CREANDO -->
+<div class="seccion">
+  <div class="seccion-header">
+    <span class="seccion-label">✦ En camino</span>
+    <h2 class="seccion-titulo"><em>Creando</em></h2>
+  </div>
+  <div class="creando">
+    <span class="creando-tag">Creando</span>
+    <p class="creando-text">Más recursos y espacios en construcción</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" class="footer-name">Paulina Collective</a>
+</footer>
+
+<!-- Audio de fondo -->
+<audio id="bg-music" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div id="music-btn" onclick="toggleMusic()" style="
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(45,31,26,0.85);
+  border: 1px solid rgba(201,169,110,0.4);
+  color: #c9a96e;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(45,31,26,0.2);
+" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">🎵</div>
+
+<script>
+  let playing = false;
+  const audio = document.getElementById('bg-music');
+  audio.volume = 0.4;
+  function toggleMusic() {
+    const btn = document.getElementById('music-btn');
+    if (!playing) {
+      audio.play();
+      btn.innerHTML = '🔇';
+      btn.style.borderColor = 'rgba(201,169,110,0.8)';
+      playing = true;
+    } else {
+      audio.pause();
+      btn.innerHTML = '🎵';
+      btn.style.borderColor = 'rgba(201,169,110,0.4)';
+      playing = false;
+    }
+  }
+</script>
+</body>
+</html>
